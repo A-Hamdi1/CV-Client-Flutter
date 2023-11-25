@@ -45,7 +45,6 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           bgColor: tOnBoardingPage2Color,
         ),
       ),
-      const ProfilePage(),
     ];
 
     return Scaffold(
@@ -64,7 +63,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             child: OutlinedButton(
               onPressed: () {
                 int nextPage = controller.currentPage + 1;
-                controller.animateToPage(page: nextPage);
+                if (nextPage < pages.length) {
+                  controller.animateToPage(page: nextPage);
+                } else {
+                  navigateToProfilePage();
+                }
               },
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
@@ -81,19 +84,20 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             ),
           ),
           Positioned(
-              top: 50,
-              right: 20,
-              child: TextButton(
-                onPressed: () => controller.jumpToPage(page: 3),
-                child: Text(
-                  "Skip",
-                  style: TextStyle(color: Colors.grey),
-                ),
-              )),
+            top: 50,
+            right: 20,
+            child: TextButton(
+              onPressed: () => navigateToProfilePage(),
+              child: Text(
+                "Skip",
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
+          ),
           Positioned(
             bottom: 10,
             child: AnimatedSmoothIndicator(
-              count: 3,
+              count: pages.length,
               activeIndex: controller.currentPage,
               effect: WormEffect(
                 activeDotColor: Color(0xff272727),
@@ -103,6 +107,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
         ],
       ),
+    );
+  }
+
+  void navigateToProfilePage() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => ProfilePage()),
     );
   }
 

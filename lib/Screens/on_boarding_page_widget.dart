@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../constants/sizes.dart';
 import '../models/on_boarding_model.dart';
 

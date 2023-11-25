@@ -18,8 +18,13 @@ dependencies:
   liquid_swipe: ^3.1.0
   smooth_page_indicator: ^1.1.0
   flutter_native_splash: ^2.3.6
-
-
+  font_awesome_flutter: ^10.6.0
+  url_launcher: ^6.2.1
+  flutter_svg: ^2.0.9
+  sliding_sheet: ^0.5.2
+  iconsax: ^0.0.8
+  dotted_border: ^2.1.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -53,3 +58,30 @@ flutter:
      - assets/images/welcome_dark.png
      - assets/images/sammy-line-1.gif
      - assets/images/sammy-line-2.gif
+     - assets/images/cover_image.png
+     - assets/images/dev.png
+     - assets/images/me.png
+     - assets/frameworks/bootstrap.svg
+     - assets/frameworks/android.svg
+     - assets/frameworks/angular.svg
+     - assets/frameworks/laravel.svg
+     - assets/frameworks/html-5.svg
+     - assets/frameworks/js.svg
+     - assets/frameworks/python.svg
+     - assets/frameworks/flutter.svg
+     - assets/img/icons/
+     - assets/img/posts/large/
+     - assets/img/posts/small/
+     - assets/img/background/
+
+  fonts:
+    - family: Avenir
+      fonts:
+        - asset: assets/fonts/AvenirLTProBook.otf
+          weight: 200
+        - asset: assets/fonts/AvenirLTProRoman.otf
+          weight: 300
+        - asset: assets/fonts/AvenirLTProMedium.otf
+          weight: 400
+        - asset: assets/fonts/AvenirLTProHeavy.otf
+          weight: 700

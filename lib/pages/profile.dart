@@ -1,48 +1,168 @@
+import 'dart:ui';
+import 'package:cv/pages/contact.dart';
+import 'package:cv/pages/settings.dart';
+import 'package:cv/pages/skills.dart';
 import 'package:flutter/material.dart';
-
-void main() => runApp(ProfilePage());
+import '../Screens/projects.dart';
+import '../constants/colors.dart';
+import 'education.dart';
+import 'experience.dart';
+import '../widgets/profile_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          title: const Text(".appable/"),
-          leading: const Icon(Icons.ondemand_video)),
-      floatingActionButton: FloatingActionButton(
-          onPressed: () {}, child: const Icon(Icons.add_shopping_cart)),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ListView(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: Stack(
           children: [
-            Text(
-              "Heading",
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
-            Text("Sub-heading", style: Theme.of(context).textTheme.titleSmall),
-            Text(
-              "Paragraph",
-              style: Theme.of(context).textTheme.bodyLarge,
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text(
-                "Elevated Button",
-              ),
-            ),
-            OutlinedButton(
-              onPressed: () {},
-              child: const Text("Outlined Button"),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(20.0),
-              child: Image(image: AssetImage("assets/images/books.png")),
-            ),
+            const ProfileWidget(),
+            scroll(),
           ],
         ),
       ),
     );
   }
+
+
+  scroll() {
+    return DraggableScrollableSheet(
+      initialChildSize: 0.09,
+      maxChildSize: 0.55,
+      minChildSize: 0.09,
+      builder: (context, scrollController) {
+        return Container(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          clipBehavior: Clip.hardEdge,
+          decoration: BoxDecoration(
+            color: Colors.grey.shade300,
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: SingleChildScrollView(
+            controller: scrollController,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 5,
+                        width: 35,
+                        color: Colors.black12,
+                      ),
+                    ],
+                  ),
+                ),
+                Column(
+                  children: [
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'My Portfolio',
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 30,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        mySpec(context, Icons.school, 'Education'),
+                        mySpec(context, Icons.work, 'Experience'),
+                        mySpec(context, Icons.code, 'Projects'),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        mySpec(context, Icons.code, 'Skills'),
+                        mySpec(context, Icons.phone, 'Contact'),
+                        mySpec(context, Icons.local_library, 'Localisation'),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        mySpec(context, Icons.person, 'None'),
+                        mySpec(context, Icons.person, 'None'),
+                        mySpec(context, Icons.person, 'None'),
+                      ],
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+Widget mySpec(BuildContext context, IconData icon, String page) {
+  return GestureDetector(
+    onTap: () {
+      if (page == 'Education') {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const EducationPage()));
+      } else if (page == 'Experience') {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const ExperiencePage()));
+      } else if (page == 'Projects') {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const ProjectPage()));
+      }else if (page == 'Skills') {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const SkillsPage()));
+      }else if (page == 'Contact') {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
+      }else if (page == 'Localisation') {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactPage()));
+      }
+    },
+    child: Container(
+      width: 105,
+      height: 115,
+      child: Card(
+        margin: const EdgeInsets.all(0),
+        color: miniCart,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(
+                icon,
+                color: Colors.white,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Text(
+                page,
+                style: const TextStyle(color: Colors.white, fontSize: 16),
+              )
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
 }
