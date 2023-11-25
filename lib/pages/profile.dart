@@ -1,9 +1,8 @@
 import 'dart:ui';
-import 'package:cv/pages/contact.dart';
-import 'package:cv/pages/settings.dart';
+import 'package:cv/pages/about.dart';
 import 'package:cv/pages/skills.dart';
 import 'package:flutter/material.dart';
-import '../Screens/projects.dart';
+import 'projects.dart';
 import '../constants/colors.dart';
 import 'education.dart';
 import 'experience.dart';
@@ -27,11 +26,10 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-
   scroll() {
     return DraggableScrollableSheet(
       initialChildSize: 0.09,
-      maxChildSize: 0.55,
+      maxChildSize: 0.41,
       minChildSize: 0.09,
       builder: (context, scrollController) {
         return Container(
@@ -69,17 +67,20 @@ class ProfilePage extends StatelessWidget {
                       children: [
                         Text(
                           'My Portfolio',
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 30,),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         mySpec(context, Icons.school, 'Education'),
                         mySpec(context, Icons.work, 'Experience'),
-                        mySpec(context, Icons.code, 'Projects'),
+                        mySpec(context, Icons.workspace_premium, 'Projects'),
                       ],
                     ),
                     const SizedBox(
@@ -89,21 +90,21 @@ class ProfilePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         mySpec(context, Icons.code, 'Skills'),
-                        mySpec(context, Icons.phone, 'Contact'),
+                        mySpec(context, Icons.person, 'About'),
                         mySpec(context, Icons.local_library, 'Localisation'),
                       ],
                     ),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        mySpec(context, Icons.person, 'None'),
-                        mySpec(context, Icons.person, 'None'),
-                        mySpec(context, Icons.person, 'None'),
-                      ],
-                    ),
+                    // const SizedBox(
+                    //   height: 12,
+                    // ),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //   children: [
+                    //     mySpec(context, Icons.person, 'None'),
+                    //     mySpec(context, Icons.person, 'None'),
+                    //     mySpec(context, Icons.person, 'None'),
+                    //   ],
+                    // ),
                   ],
                 ),
                 const SizedBox(
@@ -122,17 +123,20 @@ Widget mySpec(BuildContext context, IconData icon, String page) {
   return GestureDetector(
     onTap: () {
       if (page == 'Education') {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const EducationPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const EducationPage()));
       } else if (page == 'Experience') {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const ExperiencePage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ExperiencePage()));
       } else if (page == 'Projects') {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const ProjectPage()));
-      }else if (page == 'Skills') {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const SkillsPage()));
-      }else if (page == 'Contact') {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
-      }else if (page == 'Localisation') {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => const ContactPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ProjectPage()));
+      } else if (page == 'Skills') {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const SkillsPage()));
+      } else if (page == 'About') {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const AboutPage()));
       }
     },
     child: Container(

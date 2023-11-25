@@ -25,7 +25,7 @@ dependencies:
   iconsax: ^0.0.8
   dotted_border: ^2.1.0
   carousel_slider: ^4.2.1
-
+  provider: ^6.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -53,22 +53,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/books.png
-     - assets/images/welcome.png
-     - assets/images/welcome_dark.png
-     - assets/images/sammy-line-1.gif
-     - assets/images/sammy-line-2.gif
-     - assets/images/cover_image.png
-     - assets/images/dev.png
-     - assets/images/me.png
-     - assets/frameworks/bootstrap.svg
-     - assets/frameworks/android.svg
-     - assets/frameworks/angular.svg
-     - assets/frameworks/laravel.svg
-     - assets/frameworks/html-5.svg
-     - assets/frameworks/js.svg
-     - assets/frameworks/python.svg
-     - assets/frameworks/flutter.svg
+     - assets/images/
+     - assets/frameworks/
      - assets/img/icons/
      - assets/img/posts/large/
      - assets/img/posts/small/

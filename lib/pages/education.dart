@@ -23,18 +23,7 @@ class EducationPage extends StatelessWidget {
         description: "Your card text goes here.",
         imagePath: 'assets/images/welcome.png',
       ),
-      EducationModel(
-        title: "Année 4",
-        description: "Your card text goes here.",
-        imagePath: 'assets/images/welcome.png',
-      ),
-      EducationModel(
-        title: "Année 5",
-        description: "Your card text goes here.",
-        imagePath: 'assets/images/welcome.png',
-      ),
     ];
-
     return Scaffold(
       appBar: AppBar(),
       body: Center(
@@ -90,8 +79,8 @@ class EducationPage extends StatelessWidget {
                                   style: TextButton.styleFrom(
                                     foregroundColor: Colors.transparent,
                                   ),
-                                  child: Text(
-                                    "Projets",
+                                  child: const Text(
+                                    "Projects",
                                     style: TextStyle(color: Colors.blue),
                                   ),
                                   onPressed: () {},

@@ -15,33 +15,7 @@ class _ProjectPageState extends State<ProjectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Med Ali Zbaira"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: [
-          GestureDetector(
-            onTap: () {},
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                "assets/img/icons/profile1.png",
-                width: 25,
-                height: 35,
-                color: Colors.grey,
-              ),
-            ),
-          ),
-        ],
-        toolbarHeight: 60,
-        toolbarOpacity: 1.0,
-        bottomOpacity: 1.0,
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        titleSpacing: 10,
+        backgroundColor: Colors.white,
       ),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -58,7 +32,6 @@ class _ProjectPageState extends State<ProjectPage> {
                 const SizedBox(height: 20),
                 const SizedBox(height: 20),
                 const CategorySlider(),
-                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -68,7 +41,7 @@ class _ProjectPageState extends State<ProjectPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 15,),
+                const SizedBox(height: 15,),
                 ListView.builder(
                   shrinkWrap: true,
                   physics: const ClampingScrollPhysics(),
@@ -76,7 +49,7 @@ class _ProjectPageState extends State<ProjectPage> {
                     project: project[index],
                   ),
                   itemCount: project.length,
-                )
+                ),
               ],
             ),
           ),

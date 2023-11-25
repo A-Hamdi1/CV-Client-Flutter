@@ -2,8 +2,6 @@ class Project {
   final int id;
   final String caption;
   final String title;
-  final String likes;
-  final String time;
   final bool isBookmarked;
   final String imageFileName;
 
@@ -11,8 +9,6 @@ class Project {
     required this.id,
     required this.caption,
     required this.title,
-    required this.likes,
-    required this.time,
     required this.isBookmarked,
     required this.imageFileName,
   });
@@ -20,48 +16,38 @@ class Project {
 
 const List<Project> project = [
   Project(
-    id: 1,
-    title: 'BMW M5 Competition Review 2021',
-    caption: 'TOP GEAR',
+    id: 0,
+    title: 'Lorem ipsum dolor sit amet',
+    caption: 'Car Platform',
     isBookmarked: false,
-    likes: '3.1k',
-    time: '1hr ago',
-    imageFileName: 'assets/img/posts/small/small_post_1.jpg',
+    imageFileName: 'assets/images/website1.jpg',
   ),
   Project(
-    id: 0,
-    title: 'MacBook Pro with M1 Pro and M1 Max review',
-    caption: 'THE VERGE',
+    id: 1,
+    title: 'Lorem ipsum dolor sit amet',
+    caption: 'GYM Store',
     isBookmarked: false,
-    likes: '1.2k',
-    time: '2hr ago',
-    imageFileName: 'assets/img/posts/small/small_post_2.jpg',
+    imageFileName: 'assets/images/website2.jpg',
   ),
   Project(
     id: 2,
-    title: 'Step design sprint for UX beginner',
-    caption: 'Ux Design',
+    title: 'Lorem ipsum dolor sit amet',
+    caption: 'TWS Platform',
     isBookmarked: true,
-    likes: '2k',
-    time: '41hr ago',
-    imageFileName: 'assets/img/posts/small/small_post_3.jpg',
+    imageFileName: 'assets/images/website3.jpg',
   ),
   Project(
     id: 3,
-    title: 'Step design sprint for UX beginner',
-    caption: 'Ux Design',
+    title: 'Lorem ipsum dolor sit amet',
+    caption: 'B.E.C.A Company',
     isBookmarked: true,
-    likes: '2k',
-    time: '41hr ago',
-    imageFileName: 'assets/img/posts/small/small_post_3.jpg',
+    imageFileName: 'assets/images/website4.jpg',
   ),
   Project(
     id: 4,
-    title: 'Step design sprint for UX beginner',
-    caption: 'Ux Design',
+    title: 'Lorem ipsum dolor sit amet',
+    caption: "Big Bites Food's",
     isBookmarked: true,
-    likes: '2k',
-    time: '41hr ago',
-    imageFileName: 'assets/img/posts/small/small_post_3.jpg',
+    imageFileName: 'assets/images/website5.jpg',
   ),
 ];
