@@ -14,17 +14,22 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.6
   google_fonts: ^6.1.0
+  lottie: ^2.7.0
   get: ^4.6.6
   liquid_swipe: ^3.1.0
   smooth_page_indicator: ^1.1.0
   flutter_native_splash: ^2.3.6
+  community_material_icon: ^5.9.55
+  google_maps_flutter: ^2.5.0
   font_awesome_flutter: ^10.6.0
   url_launcher: ^6.2.1
   flutter_svg: ^2.0.9
   sliding_sheet: ^0.5.2
   iconsax: ^0.0.8
+  country_icons: ^2.0.2
   dotted_border: ^2.1.0
   carousel_slider: ^4.2.1
+  velocity_x: ^4.1.2
   provider: ^6.1.1
 dev_dependencies:
   flutter_test:
@@ -55,10 +60,8 @@ flutter:
   assets:
      - assets/images/
      - assets/frameworks/
-     - assets/img/icons/
-     - assets/img/posts/large/
-     - assets/img/posts/small/
      - assets/img/background/
+     - animations/
 
   fonts:
     - family: Avenir

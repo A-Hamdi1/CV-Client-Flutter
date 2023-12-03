@@ -1,6 +1,7 @@
 import 'package:cv/models/project_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../constants/colors.dart';
 
@@ -8,9 +9,9 @@ class ProjectCard extends StatelessWidget {
   final Project project;
 
   const ProjectCard({
-    super.key,
+    Key? key,
     required this.project,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class ProjectCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             child: Image.asset(
               project.imageFileName,
-              width: 120,
+              width: 150,
             ),
           ),
           Expanded(
@@ -53,32 +54,39 @@ class ProjectCard extends StatelessWidget {
                   const SizedBox(height: 10),
                   Text(
                     project.title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineSmall!
-                        .copyWith(fontSize: 16),
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 13),
                   ),
                   const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Row(
+                        children: [
+                          SvgPicture.asset(project.icon1, color: Colors.red),
+                          SvgPicture.asset(project.icon2, color: Colors.red),
+                          SvgPicture.asset(project.icon3, color: Colors.red),
+                          SvgPicture.asset(project.icon4, color: Colors.red),
+                        ],
+
+                      ),
                       Expanded(
-                          child: Container(
-                        alignment: Alignment.centerRight,
-                        child: Icon(
-                          project.isBookmarked
-                              ? CupertinoIcons.bookmark_fill
-                              : CupertinoIcons.bookmark,
-                          size: 16,
-                          color: kgreyColor,
+                        child: Container(
+                          alignment: Alignment.centerRight,
+                          child: Icon(
+                            project.isBookmarked
+                                ? CupertinoIcons.bookmark_fill
+                                : CupertinoIcons.bookmark,
+                            size: 16,
+                            color: kgreyColor,
+                          ),
                         ),
-                      ))
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

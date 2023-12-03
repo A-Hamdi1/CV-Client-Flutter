@@ -9,7 +9,7 @@ void main() => runApp(const ProfileWidget());
 class ProfileWidget extends StatelessWidget {
   const ProfileWidget({super.key});
 
-  final double coverHeight = 280;
+  final double coverHeight = 190;
   final double profileHeight = 144;
 
   @override
@@ -94,9 +94,9 @@ class ProfileWidget extends StatelessWidget {
       );
 
   Widget buildAbout() => Container(
-        padding: const EdgeInsets.symmetric(horizontal: 48),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
         child: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text("About",
                 style: TextStyle(
@@ -106,7 +106,7 @@ class ProfileWidget extends StatelessWidget {
             SizedBox(height: 16),
             Text(
               aboutprofile,
-              textAlign: TextAlign.justify,
+              textAlign: TextAlign.left,
               style: TextStyle(fontSize: 18, height: 1.4),
             ),
           ],

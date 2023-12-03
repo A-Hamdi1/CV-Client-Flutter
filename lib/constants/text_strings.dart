@@ -15,5 +15,4 @@ const String tOnBoardingSubTitle3 =
 const String tOnBoardingCounter1 = "1/3";
 const String tOnBoardingCounter2 = "2/3";
 const String tOnBoardingCounter3 = "3/3";
-const String aboutprofile =
-    "Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip commodo consequat. Duis aute irure.";
+const String aboutprofile ="I am a third-year student at Sfax University, specializing in computer system development, and with a strong passion for web development and gaming. My expertise includes Angular, React JS, and Node JS, and I'm constantly expanding my knowledge in the field. You can find my projects on GitHub, and I'm always eager to discuss topics related to ReactJs, Angular, and NodeJs. As a computer science student at ISET Sfax.";

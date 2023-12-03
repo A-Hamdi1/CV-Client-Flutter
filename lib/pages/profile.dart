@@ -2,10 +2,10 @@ import 'dart:ui';
 import 'package:cv/pages/about.dart';
 import 'package:cv/pages/skills.dart';
 import 'package:flutter/material.dart';
+import 'experience.dart';
 import 'projects.dart';
 import '../constants/colors.dart';
 import 'education.dart';
-import 'experience.dart';
 import '../widgets/profile_widget.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -94,17 +94,6 @@ class ProfilePage extends StatelessWidget {
                         mySpec(context, Icons.local_library, 'Localisation'),
                       ],
                     ),
-                    // const SizedBox(
-                    //   height: 12,
-                    // ),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     mySpec(context, Icons.person, 'None'),
-                    //     mySpec(context, Icons.person, 'None'),
-                    //     mySpec(context, Icons.person, 'None'),
-                    //   ],
-                    // ),
                   ],
                 ),
                 const SizedBox(
@@ -144,7 +133,7 @@ Widget mySpec(BuildContext context, IconData icon, String page) {
       height: 115,
       child: Card(
         margin: const EdgeInsets.all(0),
-        color: miniCart,
+        color: mainText,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
         ),

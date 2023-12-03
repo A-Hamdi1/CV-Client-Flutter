@@ -2,6 +2,10 @@ class Project {
   final int id;
   final String caption;
   final String title;
+  final String icon1;
+  final String icon2;
+  final String icon3;
+  final String icon4;
   final bool isBookmarked;
   final String imageFileName;
 
@@ -9,6 +13,10 @@ class Project {
     required this.id,
     required this.caption,
     required this.title,
+    required this.icon1,
+    required this.icon2,
+    required this.icon3,
+    required this.icon4,
     required this.isBookmarked,
     required this.imageFileName,
   });
@@ -17,8 +25,13 @@ class Project {
 const List<Project> project = [
   Project(
     id: 0,
-    title: 'Lorem ipsum dolor sit amet',
+    title: 'Lorem ipsum dolor sit ametLorem ipsum dolor sit amet',
     caption: 'Car Platform',
+    icon1: 'assets/img/background/angularjs.svg',
+    icon2: 'assets/img/background/angularjs.svg',
+    icon3: 'assets/img/background/angularjs.svg',
+    icon4: 'assets/img/background/angularjs.svg',
+
     isBookmarked: false,
     imageFileName: 'assets/images/website1.jpg',
   ),
@@ -26,6 +39,10 @@ const List<Project> project = [
     id: 1,
     title: 'Lorem ipsum dolor sit amet',
     caption: 'GYM Store',
+    icon1: 'assets/img/background/angularjs.svg',
+    icon2: 'assets/img/background/angularjs.svg',
+    icon3: 'assets/img/background/angularjs.svg',
+    icon4: 'assets/img/background/angularjs.svg',
     isBookmarked: false,
     imageFileName: 'assets/images/website2.jpg',
   ),
@@ -33,6 +50,10 @@ const List<Project> project = [
     id: 2,
     title: 'Lorem ipsum dolor sit amet',
     caption: 'TWS Platform',
+    icon1: 'assets/img/background/angularjs.svg',
+    icon2: 'assets/img/background/angularjs.svg',
+    icon3: '',
+    icon4: '',
     isBookmarked: true,
     imageFileName: 'assets/images/website3.jpg',
   ),
@@ -40,6 +61,10 @@ const List<Project> project = [
     id: 3,
     title: 'Lorem ipsum dolor sit amet',
     caption: 'B.E.C.A Company',
+    icon1: 'assets/img/background/angularjs.svg',
+    icon2: 'assets/img/background/angularjs.svg',
+    icon3: 'assets/img/background/angularjs.svg',
+    icon4: 'assets/img/background/angularjs.svg',
     isBookmarked: true,
     imageFileName: 'assets/images/website4.jpg',
   ),
@@ -47,6 +72,10 @@ const List<Project> project = [
     id: 4,
     title: 'Lorem ipsum dolor sit amet',
     caption: "Big Bites Food's",
+    icon1: 'assets/img/background/angularjs.svg',
+    icon2: 'assets/img/background/angularjs.svg',
+    icon3: 'assets/img/background/angularjs.svg',
+    icon4: 'assets/img/background/angularjs.svg',
     isBookmarked: true,
     imageFileName: 'assets/images/website5.jpg',
   ),

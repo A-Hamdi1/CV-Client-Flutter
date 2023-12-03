@@ -1,9 +1,8 @@
-import 'package:cv/Screens/on_boarding_screen.dart';
-import 'package:cv/pages/profile.dart';
 import 'package:cv/utils/theme/theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'widgets/onbaording.dart';
 import 'constants/colors.dart';
 
 void main() {
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: "Avenir",
       ),
-      home: OnBoardingScreen(),
+      home: OnboardingPage(),
     );
   }
 }

@@ -1,5 +1,6 @@
 // education_page.dart
 import 'package:flutter/material.dart';
+import '../constants/colors.dart';
 import '../models/education_model.dart';
 
 class EducationPage extends StatelessWidget {
@@ -25,7 +26,10 @@ class EducationPage extends StatelessWidget {
       ),
     ];
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: mainText,
+        toolbarHeight: 56, // Use toolbarHeight instead of height
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),

@@ -1,60 +1,155 @@
-import 'dart:ui';
-
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(ExperiencePage());
+class ExperiencePage extends StatefulWidget {
+  const ExperiencePage({Key? key}) : super(key: key);
 
-class ExperiencePage extends StatelessWidget {
-  const ExperiencePage({super.key});
+  @override
+  _ExperiencePageState createState() => _ExperiencePageState();
+}
+
+class _ExperiencePageState extends State<ExperiencePage> {
+  int _current = 0;
+  dynamic _selectedIndex = {};
+
+  CarouselController _carouselController = new CarouselController();
+
+  List<dynamic> _products = [
+    {
+      'title': 'Harvest Group',
+      'image': 'assets/images/haverst.png',
+      'description':'Skills: HTML5 • CSS • JavaScript • jQuery '
+    },
+    {
+      'title': 'Exadev',
+      'image': 'assets/images/exa.png',
+      'description':
+          'Skills: HTML5 • CSS • PHP • Laravel • XAMPP • Databases • MySQL'
+    },
+    {
+      'title': 'UIB - Société Générale Group',
+      'image': 'assets/images/uib.png',
+      'description':'Skills: HTML5 • CSS • JavaScript • jQuery '
+
+    },
+
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        body: Stack(
-          children: [
-            Center(
-              child: Text('Experience Page'),
-            ),
-            buttonArrow(context),
-          ],
-        ),
+    return Scaffold(
+      backgroundColor: Colors.grey.shade300,
+      floatingActionButton: _selectedIndex.length > 0
+          ? FloatingActionButton(
+              onPressed: () {},
+              child: Icon(Icons.arrow_forward_ios),
+            )
+          : null,
+      appBar: AppBar(
+        toolbarHeight: 80,
+        elevation: 0,
+        // backgroundColor: Colors.transparent,
+        // title: Text(
+        //   'my experiences',
+        //   style: TextStyle(
+        //     color: Colors.black,
+        //   ),
+        // ),
       ),
-    );
-  }
-
-  buttonArrow(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: InkWell(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Container(
-          clipBehavior: Clip.hardEdge,
-          height: 55,
-          width: 55,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-          ),
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-            child: Container(
-              height: 55,
-              width: 55,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: const Icon(
-                Icons.arrow_back_ios,
-                size: 20,
-                color: Colors.black45,
-              ),
-            ),
-          ),
-        ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        child: CarouselSlider(
+            carouselController: _carouselController,
+            options: CarouselOptions(
+                height: 450.0,
+                aspectRatio: 16 / 9,
+                viewportFraction: 0.70,
+                enlargeCenterPage: true,
+                pageSnapping: true,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _current = index;
+                  });
+                }),
+            items: _products.map((movie) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        if (_selectedIndex == movie) {
+                          _selectedIndex = {};
+                        } else {
+                          _selectedIndex = movie;
+                        }
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 300),
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                          color: Colors.grey.shade200,
+                          borderRadius: BorderRadius.circular(20),
+                          border: _selectedIndex == movie
+                              ? Border.all(
+                                  color: Colors.blue.shade500, width: 3)
+                              : null,
+                          boxShadow: _selectedIndex == movie
+                              ? [
+                                  BoxShadow(
+                                      color: Colors.blue.shade100,
+                                      blurRadius: 30,
+                                      offset: Offset(0, 10))
+                                ]
+                              : [
+                                  BoxShadow(
+                                      color: Colors.grey.withOpacity(0.2),
+                                      blurRadius: 20,
+                                      offset: Offset(0, 5))
+                                ]),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 320,
+                              margin: EdgeInsets.only(top: 10),
+                              clipBehavior: Clip.hardEdge,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Image.asset(movie['image'],
+                                  fit: BoxFit.cover),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Text(
+                              movie['title'],
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 12,right: 8.0 ),
+                              child: Text(
+                                movie['description'],
+                                style: TextStyle(
+                                    fontSize: 14, color: Colors.grey.shade600),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            }).toList()),
       ),
     );
   }
 }
+
