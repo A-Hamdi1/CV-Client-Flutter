@@ -3,6 +3,7 @@ import 'package:cv/pages/about.dart';
 import 'package:cv/pages/skills.dart';
 import 'package:flutter/material.dart';
 import 'experience.dart';
+import 'localisation.dart';
 import 'projects.dart';
 import '../constants/colors.dart';
 import 'education.dart';
@@ -126,6 +127,9 @@ Widget mySpec(BuildContext context, IconData icon, String page) {
       } else if (page == 'About') {
         Navigator.push(context,
             MaterialPageRoute(builder: (context) => const AboutPage()));
+      } else if (page == 'Localisation') {
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => LocalisationPage()));
       }
     },
     child: Container(
