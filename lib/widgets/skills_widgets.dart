@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class SkillCard extends StatelessWidget {
   final String title;
-  final List<String> skills;
+  final List<SkillData> skills;
 
   const SkillCard({
     Key? key,
@@ -54,41 +55,58 @@ class SkillCard extends StatelessWidget {
               children: skills.map((skill) => SkillChip(skill)).toList(),
             ),
           ],
-
         ),
-
       ),
-
     );
   }
 }
 
 class SkillChip extends StatelessWidget {
-  final String label;
-  final Color chipColor;
-  final Color borderColor;
+  final SkillData skill;
 
-  const SkillChip(
-      this.label, {
-        this.chipColor = Colors.cyan,
-        this.borderColor = Colors.cyan,
-      });
+  const SkillChip(this.skill);
 
   @override
   Widget build(BuildContext context) {
     return Chip(
-      label: Text(
-        label,
-      ),
-      labelStyle: TextStyle(
-        color: chipColor,
+      label: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (skill.icon != null)
+            SvgPicture.asset(
+              'assets/frameworks/${skill.icon}.svg',
+              width: 24,
+              height: 24,
+            ),
+          if (skill.icon != null) const SizedBox(width: 4),
+          Text(
+            skill.label,
+            style: TextStyle(
+              color: skill.chipColor,
+            ),
+          ),
+        ],
       ),
       side: BorderSide(
-        color: borderColor,
+        color: skill.borderColor,
       ),
       backgroundColor: Colors.white,
     );
   }
+}
+
+class SkillData {
+  final String label;
+  final String? icon;
+  final Color chipColor;
+  final Color borderColor;
+
+  SkillData(
+      this.label, {
+        this.icon,
+        this.chipColor = Colors.cyan,
+        this.borderColor = Colors.cyan,
+      });
 }
 
 class Skills extends StatelessWidget {
@@ -96,26 +114,49 @@ class Skills extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Wrap(
+    return Wrap(
       spacing: 20.0,
       runSpacing: 20.0,
       alignment: WrapAlignment.center,
       children: [
         SkillCard(
           title: "Front-End",
-          skills: ["Flutter", "Javascript","Angular", "ReactJS", "NextJS", "VueJS", "HTML5", "CSS3", "Bootstrap"],
+          skills: [
+            SkillData("Flutter", icon: "flutter", chipColor: Colors.blueGrey),
+            SkillData("Javascript", icon: "javascript", chipColor: Colors.blueGrey),
+            SkillData("Angular", icon: "angular", chipColor: Colors.blueGrey),
+            SkillData("ReactJS", icon: "react", chipColor: Colors.blueGrey),
+            SkillData("VueJS", icon: "vuejs", chipColor: Colors.blueGrey),
+            SkillData("HTML5", icon: "html5", chipColor: Colors.blueGrey),
+            SkillData("CSS3", icon: "css3", chipColor: Colors.blueGrey),
+            SkillData("Bootstrap", icon: "bootstrap", chipColor: Colors.blueGrey),
+          ],
         ),
         SkillCard(
           title: "Back-End",
-          skills: ["Spring Boot", "Java", "Kotlin", "Laravel", "NodeJS", "Python", "Django", "PHP", "ASP.NET"],
+          skills: [
+            SkillData("Java", icon: "java", chipColor: Colors.blueGrey),
+            SkillData("Python", icon: "python", chipColor: Colors.blueGrey),
+            SkillData("Kotlin", icon: "kotlin", chipColor: Colors.blueGrey),
+            SkillData("Laravel", icon: "laravel", chipColor: Colors.blueGrey),
+            SkillData("NodeJS", icon: "nodejs", chipColor: Colors.blueGrey),
+            SkillData("Django", icon: "django", chipColor: Colors.blueGrey),
+            SkillData("PHP", icon: "php", chipColor: Colors.blueGrey),
+            SkillData("ASP.NET", icon: "net", chipColor: Colors.blueGrey),
+          ],
         ),
         SkillCard(
           title: "SGBD",
-          skills: ["MySQL", "MariaDB", "PostgreSQL","MongoDB", "Firebase", ],
+          skills: [
+            SkillData("MySQL", icon: "mysql", chipColor: Colors.blueGrey),
+            SkillData("PostgreSQL", icon: "postgresql", chipColor: Colors.blueGrey),
+            SkillData("MongoDB", icon: "mongodb", chipColor: Colors.blueGrey),
+            SkillData("MariaDB", icon: "mariadb", chipColor: Colors.blueGrey),
+            SkillData("Firebase", icon: "firebase", chipColor: Colors.blueGrey),
+            SkillData("SQLite", icon: "sqlite", chipColor: Colors.blueGrey),
+          ],
         ),
-
       ],
-
     );
   }
 }

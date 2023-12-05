@@ -17,7 +17,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     super.initState();
 
     Timer(
-      const Duration(seconds: 1),
+      const Duration(seconds: 7),
           () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
           builder: (context) => const ProfilePage(),

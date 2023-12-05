@@ -1,7 +1,10 @@
 import 'dart:ui';
-import 'package:cv/pages/about.dart';
-import 'package:cv/pages/skills.dart';
+import 'package:Portfolio/pages/about.dart';
+import 'package:Portfolio/pages/skills.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../utils/theme/helper_functions.dart';
+import '../utils/theme/theme_provider.dart';
 import 'experience.dart';
 import 'localisation.dart';
 import 'projects.dart';
@@ -14,6 +17,8 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -22,6 +27,16 @@ class ProfilePage extends StatelessWidget {
             const ProfileWidget(),
             scroll(),
           ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+          },
+          child: Icon(
+            Icons.brightness_4,
+            color: Colors.white,
+          ),
+          backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
         ),
       ),
     );

@@ -1,12 +1,17 @@
-import 'package:cv/utils/theme/theme.dart';
+import 'package:Portfolio/utils/theme/theme.dart';
+import 'package:Portfolio/utils/theme/theme_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import 'widgets/onbaording.dart';
-import 'constants/colors.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,15 +21,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // theme: TAppTheme.lightTheme,
+      theme: Provider.of<ThemeProvider>(context).themeData,
       darkTheme: TAppTheme.darkTheme,
       themeMode: ThemeMode.system,
       scrollBehavior: const CupertinoScrollBehavior(),
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: kprimaryColor),
-        useMaterial3: true,
-        fontFamily: "Avenir",
-      ),
       home: OnboardingPage(),
     );
   }

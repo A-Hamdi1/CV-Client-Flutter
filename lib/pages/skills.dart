@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../utils/theme/helper_functions.dart';
+import '../utils/theme/theme_provider.dart';
 import '../widgets/skills_widgets.dart';
 
 void main() => runApp(const SkillsPage());
@@ -14,11 +17,23 @@ class SkillsPage extends StatefulWidget {
 class _SkillsPageState extends State<SkillsPage> {
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: const BodyPage(),
       appBar: AppBar(
         backgroundColor: Colors.white,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+        },
+        child: Icon(
+          Icons.brightness_4,
+          color: Colors.white,
+        ),
+        backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
       ),
     );
   }
@@ -34,6 +49,7 @@ class BodyPage extends StatefulWidget {
 class _BodyPageState extends State<BodyPage> {
   @override
   Widget build(BuildContext context) {
+
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
@@ -113,7 +129,9 @@ class _BodyPageState extends State<BodyPage> {
           SizedBox(height: 20,),
           const Skills(),
         ],
+
       ),
+
     );
   }
 }

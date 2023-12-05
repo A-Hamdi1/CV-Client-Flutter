@@ -1,7 +1,11 @@
-import 'package:cv/models/project_model.dart';
-import 'package:cv/widgets/category_slider.dart';
-import 'package:cv/widgets/project_card.dart';
+import 'package:Portfolio/models/project_model.dart';
+import 'package:Portfolio/widgets/category_slider.dart';
+import 'package:Portfolio/widgets/project_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../utils/theme/helper_functions.dart';
+import '../utils/theme/theme_provider.dart';
 
 class ProjectPage extends StatefulWidget {
   const ProjectPage({Key? key}) : super(key: key);
@@ -11,8 +15,11 @@ class ProjectPage extends StatefulWidget {
 }
 
 class _ProjectPageState extends State<ProjectPage> {
+
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -53,7 +60,19 @@ class _ProjectPageState extends State<ProjectPage> {
               ],
             ),
           ),
+
         ),
+
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+        },
+        child: Icon(
+          Icons.brightness_4,
+          color: Colors.white,
+        ),
+        backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
       ),
     );
   }

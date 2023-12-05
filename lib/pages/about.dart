@@ -1,4 +1,4 @@
-import 'package:cv/pages/profile.dart';
+import 'package:Portfolio/pages/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -68,17 +68,6 @@ class _AboutPageState extends State<AboutPage> {
                           const CircleAvatar(
                             radius: 50,
                             backgroundImage: AssetImage("assets/images/me.png"),
-                          ),
-                          InkWell(
-                            onTap: () {},
-                            child: const CircleAvatar(
-                              radius: 13,
-                              // backgroundColor: TColors.primary,
-                              child: Icon(
-                                Icons.verified,
-                                color: Colors.white,
-                              ),
-                            ),
                           ),
                         ],
                       ),
@@ -151,7 +140,7 @@ class _AboutPageState extends State<AboutPage> {
 }
 
 void _callNumber() async {
-  Uri dialNumber = Uri(scheme: 'tel', path: '+21629579776');
+  Uri dialNumber = Uri(scheme: 'tel', path: '+21622016178');
   if (!await launchUrl(dialNumber)) {
     throw Exception('Could not launch $dialNumber');
   }
@@ -160,7 +149,7 @@ void _callNumber() async {
 void _sendEmail() async {
   final Uri _emailLaunchUri = Uri(
     scheme: 'mailto',
-    path: 'azizchtourou330@gmail.com',
+    path: 'medali.zbaira.contact@gmail.com',
     queryParameters: {'subject': 'Contact'},
   );
 
@@ -177,7 +166,7 @@ void _sendEmail() async {
 
 
 Future<void> _launchMaps() async {
-  final Uri _urlLink = Uri.parse('https://maps.app.goo.gl/Lj1NUgTc2DiianuA9');
+  final Uri _urlLink = Uri.parse('https://maps.app.goo.gl/YK63yi4R3Uwxgnw3A');
   if (!await launchUrl(_urlLink)) {
     throw Exception('Could not launch $_urlLink');
   }

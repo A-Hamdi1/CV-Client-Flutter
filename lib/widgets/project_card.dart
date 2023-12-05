@@ -1,4 +1,4 @@
-import 'package:cv/models/project_model.dart';
+import 'package:Portfolio/models/project_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

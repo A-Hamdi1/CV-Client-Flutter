@@ -1,4 +1,4 @@
-import 'package:cv/utils/theme/txt_theme.dart';
+import 'package:Portfolio/utils/theme/txt_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -7,6 +7,7 @@ class TAppTheme {
 
   static ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.yellow,
+    fontFamily: 'Poppins',
     brightness: Brightness.light,
     textTheme: TTextTheme.lightTextTheme,
     appBarTheme: AppBarTheme(),
@@ -16,6 +17,8 @@ class TAppTheme {
   );
   static ThemeData darkTheme = ThemeData(
     primarySwatch: Colors.yellow,
+    fontFamily: 'Avenir',
+
     brightness: Brightness.dark,
     textTheme: TTextTheme.darkTextTheme,
     appBarTheme: AppBarTheme(),
