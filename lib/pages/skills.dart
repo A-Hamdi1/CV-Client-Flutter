@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../utils/theme/helper_functions.dart';
 import '../utils/theme/theme_provider.dart';
 import '../widgets/skills_widgets.dart';
@@ -20,10 +19,11 @@ class _SkillsPageState extends State<SkillsPage> {
     final darkMode = THelperFunctions.isDarkMode(context);
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: darkMode ? Colors.black12 : Colors.white,
+
       body: const BodyPage(),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: darkMode ? Colors.black12 : Colors.white,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -49,6 +49,7 @@ class BodyPage extends StatefulWidget {
 class _BodyPageState extends State<BodyPage> {
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
 
     return SingleChildScrollView(
       child: Column(
@@ -80,9 +81,9 @@ class _BodyPageState extends State<BodyPage> {
                         style:
                             TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                       ),
-                      const Text(
+                       Text(
                         "FullStack Devoloper",
-                        style: TextStyle(color: Colors.grey, fontSize: 15),
+                        style: TextStyle(color: darkMode ? Colors.white : Colors.black87, fontSize: 15),
                       ),
                       const SizedBox(
                         height: 10,
@@ -105,9 +106,9 @@ class _BodyPageState extends State<BodyPage> {
           Padding(
             padding: const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 20),
             child: Container(
-              child: const Text(
+              child: Text(
                 "I have acquired many skills over many years and here are some of them.",
-                style: TextStyle(color: Colors.grey, fontSize: 18),
+                style: TextStyle(color: darkMode ? Colors.white : Colors.black87, fontSize: 18),
               ),
             ),
           ),

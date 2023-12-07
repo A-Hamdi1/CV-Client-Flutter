@@ -42,14 +42,14 @@ class _ExperiencePageState extends State<ExperiencePage> {
     final darkMode = THelperFunctions.isDarkMode(context);
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: darkMode ? Colors.grey.shade900 : Colors.grey.shade300,
       appBar: AppBar(
         toolbarHeight: 80,
         elevation: 0,
         title: Text(
           'My experiences',
           style: TextStyle(
-            color: Colors.black,
+            color: darkMode ? Colors.white70 : Colors.black87,
           ),
         ),
       ),
@@ -87,7 +87,7 @@ class _ExperiencePageState extends State<ExperiencePage> {
                     duration: Duration(milliseconds: 300),
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: Colors.grey.shade200,
+                      color: darkMode ? Colors.grey.shade800 : Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(20),
                       border: _selectedIndex == movie
                           ? Border.all(color: Colors.blue.shade500, width: 3)
@@ -123,7 +123,8 @@ class _ExperiencePageState extends State<ExperiencePage> {
                           ),
                           Text(
                             movie['title'],
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: darkMode ? Colors.white70 : Colors.black87,),
+
                           ),
                           SizedBox(
                             height: 20,
@@ -132,7 +133,7 @@ class _ExperiencePageState extends State<ExperiencePage> {
                             padding: const EdgeInsets.only(left: 12, right: 8.0),
                             child: Text(
                               movie['description'],
-                              style: TextStyle(fontSize: 14, color: Colors.grey.shade600),
+                              style: TextStyle(fontSize: 14, color: darkMode ? Colors.white70 : Colors.grey.shade800,),
                             ),
                           ),
                         ],

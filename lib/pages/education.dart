@@ -35,7 +35,7 @@ class EducationPage extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade300,
+        backgroundColor: darkMode ? Colors.black54 :Colors.grey.shade300,
         toolbarHeight: 60, // Use toolbarHeight instead of height
       ),
       body: Center(
@@ -45,7 +45,8 @@ class EducationPage extends StatelessWidget {
             padding: const EdgeInsets.all(0.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.0),
-              color: Colors.grey[200],
+              color: darkMode ? Colors.black12 : Colors.grey[200],
+
             ),
             child: ListView(
               children: educationModels.map((educationModel) {
@@ -73,9 +74,10 @@ class EducationPage extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   educationModel.title,
-                                  style: const TextStyle(
+                                  style:  TextStyle(
                                     fontSize: 16,
-                                    color: Colors.black87,
+                                    color: darkMode ? Colors.grey.shade100 : Colors.black87,
+
                                     fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.center,
@@ -83,17 +85,17 @@ class EducationPage extends StatelessWidget {
                                 Container(height: 10),
                                 Text(
                                   educationModel.periode,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 14,
-                                    color: Colors.black87,
+                                    color: darkMode ? Colors.grey.shade100 : Colors.black87,
                                   ),
                                 ),
                                 Container(height: 10),
                                 Text(
                                   educationModel.description,
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 15,
-                                    color: Colors.black87,
+                                    color: darkMode ? Colors.grey.shade100 : Colors.black87,
                                   ),
                                 ),
                                 const SizedBox(

@@ -3,7 +3,6 @@ import 'package:Portfolio/widgets/category_slider.dart';
 import 'package:Portfolio/widgets/project_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../utils/theme/helper_functions.dart';
 import '../utils/theme/theme_provider.dart';
 
@@ -22,7 +21,7 @@ class _ProjectPageState extends State<ProjectPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: darkMode ? Colors.black54 : Colors.white,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

@@ -24,16 +24,6 @@ class CategorySlider extends StatelessWidget {
                 child: Image.asset(categories[index].imageFileName),
               ),
             ),
-            Positioned(
-              bottom: 40,
-              left: 30,
-              child: Text(
-                categories[index].title,
-                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      color: Colors.white,
-                    ),
-              ),
-            )
           ],
         ),
         options: CarouselOptions(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants/colors.dart';
+import '../utils/theme/helper_functions.dart';
 
 class ProjectCard extends StatelessWidget {
   final Project project;
@@ -15,9 +16,11 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
+
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: darkMode ? Colors.black54 : Colors.white,
         borderRadius: BorderRadius.circular(15),
         boxShadow: const [
           BoxShadow(
@@ -45,8 +48,8 @@ class ProjectCard extends StatelessWidget {
                 children: [
                   Text(
                     project.caption,
-                    style: const TextStyle(
-                      color: kprimaryColor,
+                    style: TextStyle(
+                      color: darkMode ? Colors.white70 : kprimaryColor,
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                     ),
@@ -54,7 +57,10 @@ class ProjectCard extends StatelessWidget {
                   const SizedBox(height: 10),
                   Text(
                     project.title,
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 13),
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                        fontSize: 13,
+                        color:
+                            darkMode ? Colors.white70 : Colors.grey.shade900),
                   ),
                   const SizedBox(height: 5),
                   Row(
@@ -62,12 +68,31 @@ class ProjectCard extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          SvgPicture.asset(project.icon1, color: Colors.red),
-                          SvgPicture.asset(project.icon2, color: Colors.red),
-                          SvgPicture.asset(project.icon3, color: Colors.red),
-                          SvgPicture.asset(project.icon4, color: Colors.red),
+                          SizedBox(width: 5),
+                          SvgPicture.asset(
+                            project.icon1,
+                            width: 25,
+                            height: 25,
+                          ),
+                          SizedBox(width: 8),
+                          SvgPicture.asset(
+                            project.icon2,
+                            width: 25,
+                            height: 25,
+                          ),
+                          SizedBox(width: 8),
+                          SvgPicture.asset(
+                            project.icon3,
+                            width: 25,
+                            height: 25,
+                          ),
+                          SizedBox(width: 8),
+                          SvgPicture.asset(
+                            project.icon4,
+                            width: 25,
+                            height: 25,
+                          ),
                         ],
-
                       ),
                       Expanded(
                         child: Container(

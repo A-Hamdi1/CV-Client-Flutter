@@ -25,7 +25,7 @@ class ProfilePage extends StatelessWidget {
         body: Stack(
           children: [
             const ProfileWidget(),
-            scroll(),
+            scroll(context),
           ],
         ),
         floatingActionButton: FloatingActionButton(
@@ -42,7 +42,9 @@ class ProfilePage extends StatelessWidget {
     );
   }
 
-  scroll() {
+  scroll(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
+
     return DraggableScrollableSheet(
       initialChildSize: 0.09,
       maxChildSize: 0.41,
@@ -52,7 +54,7 @@ class ProfilePage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           clipBehavior: Clip.hardEdge,
           decoration: BoxDecoration(
-            color: Colors.grey.shade300,
+            color: darkMode ? Colors.grey.shade800 : Colors.grey.shade500,
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
@@ -78,12 +80,13 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    const Row(
+                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'My Portfolio',
                           style: TextStyle(
+                            color: darkMode ? Colors.white : Colors.black,
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
                       ],

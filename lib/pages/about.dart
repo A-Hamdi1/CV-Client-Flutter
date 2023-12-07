@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/colors.dart';
+import '../utils/theme/helper_functions.dart';
+import '../utils/theme/theme_provider.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -16,8 +18,10 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
+
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -109,16 +113,16 @@ class _AboutPageState extends State<AboutPage> {
           ),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     themeProvider.toggleTheme();
-      //   },
-      //   child: Icon(
-      //     Icons.brightness_4,
-      //     color: Colors.white,
-      //   ),
-      //   backgroundColor: darkMode ? Colors.lightBlueAccent : Colors.grey,
-      // ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
+        },
+        child: Icon(
+          Icons.brightness_4,
+          color: Colors.white,
+        ),
+        backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
+      ),
     );
   }
 

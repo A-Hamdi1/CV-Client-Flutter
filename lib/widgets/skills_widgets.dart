@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:velocity_x/velocity_x.dart';
 
+import '../utils/theme/helper_functions.dart';
+
 class SkillCard extends StatelessWidget {
   final String title;
   final List<SkillData> skills;
@@ -14,6 +16,14 @@ class SkillCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
+
+    // Define color schemes for light mode and dark mode
+    final cardColor = darkMode ? Colors.grey[800] : Colors.white;
+    final chipColor = darkMode ? Colors.white : Colors.cyan;
+    final borderColor = darkMode ? Colors.white : Colors.cyan;
+    final dividerColor = darkMode ? Colors.white : Colors.black87; // Set the color for the Divider
+
     return Card(
       elevation: 5.0,
       shape: RoundedRectangleBorder(
@@ -25,7 +35,7 @@ class SkillCard extends StatelessWidget {
             ? context.screenWidth * 0.9
             : ((context.screenWidth * 0.7) / 3),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: cardColor,
           borderRadius: BorderRadius.circular(20.0),
           boxShadow: [
             BoxShadow(
@@ -43,16 +53,23 @@ class SkillCard extends StatelessWidget {
           children: [
             Text(
               title,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 22.0,
                 fontWeight: FontWeight.w600,
+                color: darkMode ? Colors.white : Colors.black,
               ),
             ),
-            const Divider(),
+            Divider(color: dividerColor,),
             Wrap(
               spacing: 8.0,
               runSpacing: 8.0,
-              children: skills.map((skill) => SkillChip(skill)).toList(),
+              children: skills
+                  .map((skill) => SkillChip(
+                skill,
+                chipColor: chipColor,
+                borderColor: borderColor,
+              ))
+                  .toList(),
             ),
           ],
         ),
@@ -63,11 +80,15 @@ class SkillCard extends StatelessWidget {
 
 class SkillChip extends StatelessWidget {
   final SkillData skill;
+  final Color chipColor;
+  final Color borderColor;
 
-  const SkillChip(this.skill);
+  const SkillChip(this.skill, {required this.chipColor, required this.borderColor});
 
   @override
   Widget build(BuildContext context) {
+    final darkMode = THelperFunctions.isDarkMode(context);
+
     return Chip(
       label: Row(
         mainAxisSize: MainAxisSize.min,
@@ -88,9 +109,9 @@ class SkillChip extends StatelessWidget {
         ],
       ),
       side: BorderSide(
-        color: skill.borderColor,
+        color: borderColor,
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: darkMode ? Colors.white : Colors.white,
     );
   }
 }
