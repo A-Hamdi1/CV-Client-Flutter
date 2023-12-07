@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../utils/theme/helper_functions.dart';
 import '../utils/theme/theme_provider.dart';
+import '../widgets/button_widget.dart';
 import 'experience.dart';
 import 'localisation.dart';
 import 'projects.dart';
@@ -28,16 +29,7 @@ class ProfilePage extends StatelessWidget {
             scroll(context),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-          },
-          child: Icon(
-            Icons.brightness_4,
-            color: Colors.white,
-          ),
-          backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
-        ),
+        floatingActionButton: CustomSpeedDial(),
       ),
     );
   }
@@ -80,14 +72,15 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'My Portfolio',
                           style: TextStyle(
-                            color: darkMode ? Colors.white : Colors.black,
-                              fontWeight: FontWeight.bold, fontSize: 20),
+                              color: darkMode ? Colors.white : Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20),
                         ),
                       ],
                     ),

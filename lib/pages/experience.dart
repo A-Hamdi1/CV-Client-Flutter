@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../utils/theme/helper_functions.dart';
 import '../utils/theme/theme_provider.dart';
+import '../widgets/button_widget.dart';
 
 class ExperiencePage extends StatefulWidget {
   const ExperiencePage({Key? key}) : super(key: key);
@@ -28,7 +29,7 @@ class _ExperiencePageState extends State<ExperiencePage> {
       'title': 'Exadev',
       'image': 'assets/images/exa.png',
       'description':
-      'Skills: HTML5 • CSS • PHP • Laravel • XAMPP • Databases • MySQL'
+          'Skills: HTML5 • CSS • PHP • Laravel • XAMPP • Databases • MySQL'
     },
     {
       'title': 'UIB - Société Générale Group',
@@ -87,24 +88,26 @@ class _ExperiencePageState extends State<ExperiencePage> {
                     duration: Duration(milliseconds: 300),
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
-                      color: darkMode ? Colors.grey.shade800 : Colors.grey.shade200,
+                      color: darkMode
+                          ? Colors.grey.shade800
+                          : Colors.grey.shade200,
                       borderRadius: BorderRadius.circular(20),
                       border: _selectedIndex == movie
                           ? Border.all(color: Colors.blue.shade500, width: 3)
                           : null,
                       boxShadow: _selectedIndex == movie
                           ? [
-                        BoxShadow(
-                            color: Colors.blue.shade100,
-                            blurRadius: 30,
-                            offset: Offset(0, 10))
-                      ]
+                              BoxShadow(
+                                  color: Colors.blue.shade100,
+                                  blurRadius: 30,
+                                  offset: Offset(0, 10))
+                            ]
                           : [
-                        BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            blurRadius: 20,
-                            offset: Offset(0, 5))
-                      ],
+                              BoxShadow(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  blurRadius: 20,
+                                  offset: Offset(0, 5))
+                            ],
                     ),
                     child: SingleChildScrollView(
                       child: Column(
@@ -116,24 +119,34 @@ class _ExperiencePageState extends State<ExperiencePage> {
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: Image.asset(movie['image'], fit: BoxFit.cover),
+                            child:
+                                Image.asset(movie['image'], fit: BoxFit.cover),
                           ),
                           SizedBox(
                             height: 20,
                           ),
                           Text(
                             movie['title'],
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: darkMode ? Colors.white70 : Colors.black87,),
-
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: darkMode ? Colors.white70 : Colors.black87,
+                            ),
                           ),
                           SizedBox(
                             height: 20,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 12, right: 8.0),
+                            padding:
+                                const EdgeInsets.only(left: 12, right: 8.0),
                             child: Text(
                               movie['description'],
-                              style: TextStyle(fontSize: 14, color: darkMode ? Colors.white70 : Colors.grey.shade800,),
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: darkMode
+                                    ? Colors.white70
+                                    : Colors.grey.shade800,
+                              ),
                             ),
                           ),
                         ],
@@ -146,16 +159,7 @@ class _ExperiencePageState extends State<ExperiencePage> {
           }).toList(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-        },
-        child: Icon(
-          Icons.brightness_4,
-          color: Colors.white,
-        ),
-        backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
-      ),
+      floatingActionButton: CustomSpeedDial(),
     );
   }
 }

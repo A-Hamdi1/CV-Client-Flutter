@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../utils/theme/helper_functions.dart';
 import '../utils/theme/theme_provider.dart';
+import '../widgets/button_widget.dart';
 import '../widgets/skills_widgets.dart';
 
 void main() => runApp(const SkillsPage());
@@ -20,21 +21,11 @@ class _SkillsPageState extends State<SkillsPage> {
 
     return Scaffold(
       backgroundColor: darkMode ? Colors.black12 : Colors.white,
-
       body: const BodyPage(),
       appBar: AppBar(
         backgroundColor: darkMode ? Colors.black12 : Colors.white,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-        },
-        child: Icon(
-          Icons.brightness_4,
-          color: Colors.white,
-        ),
-        backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
-      ),
+      floatingActionButton: CustomSpeedDial(),
     );
   }
 }
@@ -78,12 +69,14 @@ class _BodyPageState extends State<BodyPage> {
                     children: <Widget>[
                       const Text(
                         "Med Ali Zbaira",
-                        style:
-                            TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold),
                       ),
-                       Text(
+                      Text(
                         "FullStack Devoloper",
-                        style: TextStyle(color: darkMode ? Colors.white : Colors.black87, fontSize: 15),
+                        style: TextStyle(
+                            color: darkMode ? Colors.white : Colors.black87,
+                            fontSize: 15),
                       ),
                       const SizedBox(
                         height: 10,
@@ -104,11 +97,14 @@ class _BodyPageState extends State<BodyPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 20),
+            padding:
+                const EdgeInsets.only(left: 25, right: 25, top: 10, bottom: 20),
             child: Container(
               child: Text(
                 "I have acquired many skills over many years and here are some of them.",
-                style: TextStyle(color: darkMode ? Colors.white : Colors.black87, fontSize: 18),
+                style: TextStyle(
+                    color: darkMode ? Colors.white : Colors.black87,
+                    fontSize: 18),
               ),
             ),
           ),
@@ -121,18 +117,17 @@ class _BodyPageState extends State<BodyPage> {
                   style: TextStyle(
                       color: Colors.blue[700], fontWeight: FontWeight.bold),
                 ),
-                const Text("---------------------------------------------------------------"),
+                const Text(
+                    "---------------------------------------------------------------"),
               ],
-      
             ),
-      
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           const Skills(),
         ],
-
       ),
-
     );
   }
 }

@@ -5,6 +5,7 @@ import '../constants/colors.dart';
 import '../models/education_model.dart';
 import '../utils/theme/helper_functions.dart';
 import '../utils/theme/theme_provider.dart';
+import '../widgets/button_widget.dart';
 
 class EducationPage extends StatelessWidget {
   const EducationPage({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class EducationPage extends StatelessWidget {
     ];
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: darkMode ? Colors.black54 :Colors.grey.shade300,
+        backgroundColor: darkMode ? Colors.black54 : Colors.grey.shade300,
         toolbarHeight: 60, // Use toolbarHeight instead of height
       ),
       body: Center(
@@ -46,7 +47,6 @@ class EducationPage extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.0),
               color: darkMode ? Colors.black12 : Colors.grey[200],
-
             ),
             child: ListView(
               children: educationModels.map((educationModel) {
@@ -74,10 +74,11 @@ class EducationPage extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   educationModel.title,
-                                  style:  TextStyle(
+                                  style: TextStyle(
                                     fontSize: 16,
-                                    color: darkMode ? Colors.grey.shade100 : Colors.black87,
-
+                                    color: darkMode
+                                        ? Colors.grey.shade100
+                                        : Colors.black87,
                                     fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.center,
@@ -87,7 +88,9 @@ class EducationPage extends StatelessWidget {
                                   educationModel.periode,
                                   style: TextStyle(
                                     fontSize: 14,
-                                    color: darkMode ? Colors.grey.shade100 : Colors.black87,
+                                    color: darkMode
+                                        ? Colors.grey.shade100
+                                        : Colors.black87,
                                   ),
                                 ),
                                 Container(height: 10),
@@ -95,7 +98,9 @@ class EducationPage extends StatelessWidget {
                                   educationModel.description,
                                   style: TextStyle(
                                     fontSize: 15,
-                                    color: darkMode ? Colors.grey.shade100 : Colors.black87,
+                                    color: darkMode
+                                        ? Colors.grey.shade100
+                                        : Colors.black87,
                                   ),
                                 ),
                                 const SizedBox(
@@ -115,18 +120,8 @@ class EducationPage extends StatelessWidget {
             ),
           ),
         ),
-
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-        },
-        child: Icon(
-          Icons.brightness_4,
-          color: Colors.white,
-        ),
-        backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
-      ),
+      floatingActionButton: CustomSpeedDial(),
     );
   }
 }

@@ -9,6 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 import '../constants/colors.dart';
 import '../utils/theme/helper_functions.dart';
 import '../utils/theme/theme_provider.dart';
+import '../widgets/button_widget.dart';
 
 class AboutPage extends StatefulWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -113,16 +114,8 @@ class _AboutPageState extends State<AboutPage> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-        },
-        child: Icon(
-          Icons.brightness_4,
-          color: Colors.white,
-        ),
-        backgroundColor: darkMode ? Colors.lightBlue : Colors.grey,
-      ),
+      floatingActionButton: CustomSpeedDial(),
+
     );
   }
 
