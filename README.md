@@ -1,23 +1,23 @@
-# Portfolio CV - Application Flutter
+# Portfolio Client - Application Flutter
 
 ![Flutter Version](https://img.shields.io/badge/Flutter-3.1.5+-blue.svg) ![Dart Version](https://img.shields.io/badge/Dart-3.0.0+-blue.svg) ![License](https://img.shields.io/badge/License-MIT-green.svg)
 
 ## 📱 Présentation
 
-Portfolio CV est une application mobile moderne et élégante développée avec Flutter pour présenter votre CV, vos compétences et vos projets de manière interactive. Cette application multiplateforme (Android, iOS, Web) offre une expérience utilisateur fluide avec un design soigné et des animations attrayantes.
+Portfolio Client est une application mobile moderne et élégante développée avec Flutter pour présenter un CV de client, ses compétences et ses projets de manière interactive. Cette application multiplateforme (Android, iOS, Web) offre une expérience utilisateur fluide avec un design soigné et des animations attrayantes.
 
 ## ✨ Fonctionnalités
 
 - **Écran d'accueil animé** : Animation de bienvenue avec Lottie
-- **Profil personnel** : Présentation de vos informations personnelles et professionnelles
+- **Profil personnel** : Présentation des informations personnelles et professionnelles
 - **Sections détaillées** :
   - 📚 Éducation : Parcours académique avec descriptions et périodes
-  - 💼 Expérience professionnelle : Présentation de vos expériences de travail
-  - 🚀 Projets : Galerie de vos projets avec technologies utilisées
-  - 🛠️ Compétences : Présentation visuelle de vos compétences techniques
+  - 💼 Expérience professionnelle : Présentation des expériences de travail
+  - 🚀 Projets : Galerie des projets avec technologies utilisées
+  - 🛠️ Compétences : Présentation visuelle des compétences techniques
   - ℹ️ À propos : Informations complémentaires et contacts
 - **Thème clair/sombre** : Changement dynamique de thème
-- **Liens sociaux** : Intégration de vos profils sociaux (LinkedIn, GitHub, Facebook)
+- **Liens sociaux** : Intégration des profils sociaux (LinkedIn, GitHub, Facebook)
 - **Interface responsive** : S'adapte à différentes tailles d'écran
 - **Navigation intuitive** : Déplacement fluide entre les différentes sections
 
@@ -61,8 +61,8 @@ lib/
 
 2. **Cloner le dépôt**
    ```bash
-   git clone https://github.com/A-Hamdi1/CV-Mobile-Flutter.git
-   cd CV-Mobile-Flutter
+   git clone https://github.com/A-Hamdi1/CV-Client-Flutter.git
+   cd CV-Client-Flutter
    ```
 
 3. **Installer les dépendances**
