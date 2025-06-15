@@ -102,10 +102,6 @@ flutter build ios --release
 flutter build web --release
 ```
 
-## 📝 Licence
-
-Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
-
 ## 📞 Contact
 
 Pour toute question ou suggestion, n'hésitez pas à me contacter :
